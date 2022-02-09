@@ -4,14 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.joolun</groupId>
-    <artifactId>joolun-wx</artifactId>
+    <groupId>com.double.hi</groupId>
+    <artifactId>mingliuhzp-background</artifactId>
     <version>3.3.1</version>
 
-    <name>joolun-wx</name>
-    <url>http://www.joolun.com</url>
-    <description>JooLun微信管理系统</description>
-    
+    <name>mingliuhzp-background</name>
+    <url>http://www.mingliuhzp.online</url>
+
+    <modules>
+        <module>mingliuhzp-admin</module>
+        <module>mingliuhzp-framework</module>
+        <module>mingliuhzp-system</module>
+        <module>mingliuhzp-quartz</module>
+        <module>mingliuhzp-generator</module>
+        <module>mingliuhzp-common</module>
+        <module>mingliuhzp-weixin</module>
+        <module>mingliuhzp-mall</module>
+    </modules>
+    <packaging>pom</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -164,50 +175,50 @@
             
             <!-- 定时任务-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-quartz</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-quartz</artifactId>
                 <version>${project.version}</version>
             </dependency>
 	
             <!-- 代码生成-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-generator</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-generator</artifactId>
                 <version>${project.version}</version>
             </dependency>
 			
             <!-- 核心模块-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-framework</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-framework</artifactId>
                 <version>${project.version}</version>
             </dependency>
 			
             <!-- 系统模块-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-system</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-system</artifactId>
                 <version>${project.version}</version>
             </dependency>
 			
             <!-- 通用工具-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-common</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <!-- 微信模块-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-weixin</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-weixin</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <!-- 商城模块-->
             <dependency>
-                <groupId>com.joolun</groupId>
-                <artifactId>joolun-mall</artifactId>
+                <groupId>com.double.hi</groupId>
+                <artifactId>mingliuhzp-mall</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -261,19 +272,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <modules>
-        <module>joolun-admin</module>
-        <module>joolun-framework</module>
-        <module>joolun-system</module>
-        <module>joolun-quartz</module>
-        <module>joolun-generator</module>
-        <module>joolun-common</module>
-        <module>joolun-weixin</module>
-        <module>joolun-mall</module>
-    </modules>
-    <packaging>pom</packaging>
-
 
     <dependencies>
         <!--Lombok-->

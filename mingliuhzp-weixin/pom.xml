@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>joolun-wx</artifactId>
-        <groupId>com.joolun</groupId>
+        <groupId>com.double.hi</groupId>
+        <artifactId>mingliuhzp-background</artifactId>
         <version>3.3.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>joolun-weixin</artifactId>
+    <artifactId>mingliuhzp-weixin</artifactId>
 
     <description>
         微信模块
@@ -19,13 +19,13 @@
 
         <!-- 通用工具-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-common</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-common</artifactId>
         </dependency>
         <!-- 核心模块-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-framework</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-framework</artifactId>
         </dependency>
         <!--mybatis plus extension,包含了mybatis plus core-->
         <dependency>

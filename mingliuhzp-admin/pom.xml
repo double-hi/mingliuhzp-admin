@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>joolun-wx</artifactId>
-        <groupId>com.joolun</groupId>
+        <groupId>com.double.hi</groupId>
+        <artifactId>mingliuhzp-background</artifactId>
         <version>3.3.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>joolun-admin</artifactId>
+    <artifactId>mingliuhzp-admin</artifactId>
 
     <description>
         web服务入口
@@ -57,31 +57,36 @@
 
         <!-- 核心模块-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-framework</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-framework</artifactId>
         </dependency>
 
         <!-- 定时任务-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-quartz</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-quartz</artifactId>
         </dependency>
 
         <!-- 代码生成-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-generator</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-generator</artifactId>
         </dependency>
 
         <!-- 微信模块-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-weixin</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-weixin</artifactId>
         </dependency>
         <!-- 商城模块-->
         <dependency>
-            <groupId>com.joolun</groupId>
-            <artifactId>joolun-mall</artifactId>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-mall</artifactId>
+        </dependency>
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>com.double.hi</groupId>
+            <artifactId>mingliuhzp-common</artifactId>
         </dependency>
 
     </dependencies>
