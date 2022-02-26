@@ -53,13 +53,13 @@ spring:
   # redis 配置
   redis:
     # 地址
-    host: 124.222.59.231
+    host: sh-crs-4wma8vf6.sql.tencentcdb.com
     # 端口，默认为6379
-    port: 6379
+    port: 29217
     # 数据库索引
     database: 0
     # 密码
-    # password:
+    password:
     # 连接超时时间
     timeout: 10s
     lettuce:
@@ -130,8 +130,8 @@ wx:
   # 小程序配置
   ma:
     configs:
-      - appId: xxxxxxxxxxxxxxxx
-        secret: xxxxxxxxxxxxx
+      - appId: wx1f04baa4964d251a
+        secret: 0e5cf209985dc4b90b2f6f7e95212822
         # 微信支付商户号，请去微信支付平台申请
         mchId: 1588227511
         # 微信支付商户密钥，请去微信支付平台申请

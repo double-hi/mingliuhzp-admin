@@ -115,12 +115,12 @@ public class BaseController
         {
             return;
         }
-
-        // 增删改 请求
-        if ("DELETE".equals(httpServletRequest.getMethod()) || "POST".equals(httpServletRequest.getMethod())
-                || "PUT".equals(httpServletRequest.getMethod()))
-        {
-            throw new DemoModeException();
-        }
+//
+//        // 增删改 请求
+//        if ("DELETE".equals(httpServletRequest.getMethod()) || "POST".equals(httpServletRequest.getMethod())
+//                || "PUT".equals(httpServletRequest.getMethod()))
+//        {
+//            throw new DemoModeException();
+//        }
     }
 }
