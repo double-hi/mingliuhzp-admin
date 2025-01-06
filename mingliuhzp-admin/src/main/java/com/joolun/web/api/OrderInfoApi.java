@@ -91,7 +91,7 @@ public class OrderInfoApi {
     @PostMapping
     public AjaxResult save(@RequestBody PlaceOrderDTO placeOrderDTO){
 		placeOrderDTO.setUserId(ThirdSessionHolder.getWxUserId());
-		placeOrderDTO.setPaymentWay(MallConstants.PAYMENT_WAY_2);
+		placeOrderDTO.setPaymentWay(MallConstants.PAYMENT_WAY_1);
 		OrderInfo orderInfo = orderInfoService.orderSub(placeOrderDTO);
 		if(orderInfo == null){
 			return AjaxResult.error(MyReturnCode.ERR_70003.getCode(), MyReturnCode.ERR_70003.getMsg());

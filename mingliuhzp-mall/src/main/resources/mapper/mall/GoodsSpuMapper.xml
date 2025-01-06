@@ -27,6 +27,7 @@
 		<result property="createTime" column="create_time"/>
 		<result property="updateTime" column="update_time"/>
 		<result property="delFlag" column="del_flag"/>
+		<result property="posterUrls" column="poster_urls"/>
 	</resultMap>
 
 	<resultMap id="goodsSpuMap1" extends="goodsSpuMap" type="com.joolun.mall.entity.GoodsSpu">
@@ -63,7 +64,8 @@
 		goods_spu.`sale_num`,
 		goods_spu.`create_time`,
 		goods_spu.`update_time`,
-		goods_spu.`del_flag`
+		goods_spu.`del_flag`,
+		goods_spu.`poster_urls`
 	</sql>
 
 	<sql id="goodsSpuSql2">
@@ -84,7 +86,8 @@
 		goods_spu.`sale_num`,
 		goods_spu.`create_time`,
 		goods_spu.`update_time`,
-		goods_spu.`del_flag`
+		goods_spu.`del_flag`,
+		goods_spu.`poster_urls`
 	</sql>
 
 	<select id="selectPage1" resultMap="goodsSpuMap">
@@ -103,6 +106,9 @@
 			</if>
 			<if test="query.spuCode != null">
 				AND goods_spu.`spu_code` = #{query.spuCode}
+			</if>
+			<if test="query.sort != null">
+				AND goods_spu.`sort` = #{query.sort}
 			</if>
 		</where>
 	</select>
@@ -142,6 +148,9 @@
 			</if>
 			<if test="query.name != null">
 				AND goods_spu.`name` LIKE CONCAT('%',#{query.name},'%')
+			</if>
+			<if test="query.sort != null">
+				AND goods_spu.`sort` = #{query.sort}
 			</if>
 		</where>
 	</select>

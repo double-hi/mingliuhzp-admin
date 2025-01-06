@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 8.0.19 : Database - joolun_ry
+MySQL - 8.0.19 : Database - mingliuhzp
 *********************************************************************
 */
 
@@ -12,11 +12,74 @@ MySQL - 8.0.19 : Database - joolun_ry
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`joolun_ry` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`mingliuhzp` /*!40100 DEFAULT    */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE `joolun_ry`;
+USE `mingliuhzp`;
+
+/*Table structure for table `QRTZ_JOB_DETAILS` */
+
+DROP TABLE IF EXISTS `QRTZ_JOB_DETAILS`;
+
+CREATE TABLE `QRTZ_JOB_DETAILS` (
+                                    `sched_name` varchar(120) NOT NULL,
+                                    `job_name` varchar(200) NOT NULL,
+                                    `job_group` varchar(200) NOT NULL,
+                                    `description` varchar(250) DEFAULT NULL,
+                                    `job_class_name` varchar(250) NOT NULL,
+                                    `is_durable` varchar(1) NOT NULL,
+                                    `is_nonconcurrent` varchar(1) NOT NULL,
+                                    `is_update_data` varchar(1) NOT NULL,
+                                    `requests_recovery` varchar(1) NOT NULL,
+                                    `job_data` blob,
+                                    PRIMARY KEY (`sched_name`,`job_name`,`job_group`)
+) ENGINE=InnoDB  ;
+
+
+/*Data for the table `QRTZ_JOB_DETAILS` */
+
+insert  into `QRTZ_JOB_DETAILS`(`sched_name`,`job_name`,`job_group`,`description`,`job_class_name`,`is_durable`,`is_nonconcurrent`,`is_update_data`,`requests_recovery`,`job_data`) values
+                                                                                                                                                                                        ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/10 * * * * ?t\0ryTask.ryNoParamst\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（无参）t\03t\01x\0'),
+                                                                                                                                                                                        ('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/15 * * * * ?t\0ryTask.ryParams(\'ry\')t\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（有参）t\03t\01x\0'),
+                                                                                                                                                                                        ('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/20 * * * * ?t\08ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)t\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（多参）t\03t\01x\0');
+
+
+/*Table structure for table `QRTZ_TRIGGERS` */
+
+DROP TABLE IF EXISTS `QRTZ_TRIGGERS`;
+
+CREATE TABLE `QRTZ_TRIGGERS` (
+                                 `sched_name` varchar(120) NOT NULL,
+                                 `trigger_name` varchar(200) NOT NULL,
+                                 `trigger_group` varchar(200) NOT NULL,
+                                 `job_name` varchar(200) NOT NULL,
+                                 `job_group` varchar(200) NOT NULL,
+                                 `description` varchar(250) DEFAULT NULL,
+                                 `next_fire_time` bigint DEFAULT NULL,
+                                 `prev_fire_time` bigint DEFAULT NULL,
+                                 `priority` int DEFAULT NULL,
+                                 `trigger_state` varchar(16) NOT NULL,
+                                 `trigger_type` varchar(8) NOT NULL,
+                                 `start_time` bigint NOT NULL,
+                                 `end_time` bigint DEFAULT NULL,
+                                 `calendar_name` varchar(200) DEFAULT NULL,
+                                 `misfire_instr` smallint DEFAULT NULL,
+                                 `job_data` blob,
+                                 PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
+                                 KEY `sched_name` (`sched_name`,`job_name`,`job_group`),
+                                 CONSTRAINT `QRTZ_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `job_name`, `job_group`) REFERENCES `QRTZ_JOB_DETAILS` (`sched_name`, `job_name`, `job_group`)
+) ENGINE=InnoDB  ;
+
+
+/*Data for the table `QRTZ_TRIGGERS` */
+
+insert  into `QRTZ_TRIGGERS`(`sched_name`,`trigger_name`,`trigger_group`,`job_name`,`job_group`,`description`,`next_fire_time`,`prev_fire_time`,`priority`,`trigger_state`,`trigger_type`,`start_time`,`end_time`,`calendar_name`,`misfire_instr`,`job_data`) values
+                                                                                                                                                                                                                                                                  ('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT','TASK_CLASS_NAME1','DEFAULT',NULL,1614684800000,-1,5,'PAUSED','CRON',1614684794000,0,NULL,2,''),
+                                                                                                                                                                                                                                                                  ('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT','TASK_CLASS_NAME2','DEFAULT',NULL,1614684795000,-1,5,'PAUSED','CRON',1614684795000,0,NULL,2,''),
+                                                                                                                                                                                                                                                                  ('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT','TASK_CLASS_NAME3','DEFAULT',NULL,1614684800000,-1,5,'PAUSED','CRON',1614684797000,0,NULL,2,'');
 
 /*Table structure for table `QRTZ_BLOB_TRIGGERS` */
+
+
 
 DROP TABLE IF EXISTS `QRTZ_BLOB_TRIGGERS`;
 
@@ -27,7 +90,7 @@ CREATE TABLE `QRTZ_BLOB_TRIGGERS` (
   `blob_data` blob,
   PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
   CONSTRAINT `QRTZ_BLOB_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `QRTZ_TRIGGERS` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_BLOB_TRIGGERS` */
 
@@ -40,7 +103,7 @@ CREATE TABLE `QRTZ_CALENDARS` (
   `calendar_name` varchar(200) NOT NULL,
   `calendar` blob NOT NULL,
   PRIMARY KEY (`sched_name`,`calendar_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_CALENDARS` */
 
@@ -56,7 +119,7 @@ CREATE TABLE `QRTZ_CRON_TRIGGERS` (
   `time_zone_id` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
   CONSTRAINT `QRTZ_CRON_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `QRTZ_TRIGGERS` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_CRON_TRIGGERS` */
 
@@ -84,34 +147,11 @@ CREATE TABLE `QRTZ_FIRED_TRIGGERS` (
   `is_nonconcurrent` varchar(1) DEFAULT NULL,
   `requests_recovery` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`sched_name`,`entry_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_FIRED_TRIGGERS` */
 
-/*Table structure for table `QRTZ_JOB_DETAILS` */
 
-DROP TABLE IF EXISTS `QRTZ_JOB_DETAILS`;
-
-CREATE TABLE `QRTZ_JOB_DETAILS` (
-  `sched_name` varchar(120) NOT NULL,
-  `job_name` varchar(200) NOT NULL,
-  `job_group` varchar(200) NOT NULL,
-  `description` varchar(250) DEFAULT NULL,
-  `job_class_name` varchar(250) NOT NULL,
-  `is_durable` varchar(1) NOT NULL,
-  `is_nonconcurrent` varchar(1) NOT NULL,
-  `is_update_data` varchar(1) NOT NULL,
-  `requests_recovery` varchar(1) NOT NULL,
-  `job_data` blob,
-  PRIMARY KEY (`sched_name`,`job_name`,`job_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `QRTZ_JOB_DETAILS` */
-
-insert  into `QRTZ_JOB_DETAILS`(`sched_name`,`job_name`,`job_group`,`description`,`job_class_name`,`is_durable`,`is_nonconcurrent`,`is_update_data`,`requests_recovery`,`job_data`) values 
-('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/10 * * * * ?t\0ryTask.ryNoParamst\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（无参）t\03t\01x\0'),
-('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/15 * * * * ?t\0ryTask.ryParams(\'ry\')t\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（有参）t\03t\01x\0'),
-('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT',NULL,'com.joolun.quartz.util.QuartzDisallowConcurrentExecution','0','1','0','0','��\0sr\0org.quartz.JobDataMap���迩��\0\0xr\0&org.quartz.utils.StringKeyDirtyFlagMap�����](\0Z\0allowsTransientDataxr\0org.quartz.utils.DirtyFlagMap�.�(v\n�\0Z\0dirtyL\0mapt\0Ljava/util/Map;xpsr\0java.util.HashMap���`�\0F\0\nloadFactorI\0	thresholdxp?@\0\0\0\0\0w\0\0\0\0\0\0t\0TASK_PROPERTIESsr\0com.joolun.quartz.domain.SysJob\0\0\0\0\0\0\0\0L\0\nconcurrentt\0Ljava/lang/String;L\0cronExpressionq\0~\0	L\0invokeTargetq\0~\0	L\0jobGroupq\0~\0	L\0jobIdt\0Ljava/lang/Long;L\0jobNameq\0~\0	L\0\rmisfirePolicyq\0~\0	L\0statusq\0~\0	xr\0(com.joolun.common.core.domain.BaseEntity\0\0\0\0\0\0\0\0L\0createByq\0~\0	L\0\ncreateTimet\0Ljava/util/Date;L\0paramsq\0~\0L\0remarkq\0~\0	L\0searchValueq\0~\0	L\0updateByq\0~\0	L\0\nupdateTimeq\0~\0xpt\0adminsr\0java.util.Datehj�KYt\0\0xpw\0\0v�Ո�xpt\0\0pppt\01t\00/20 * * * * ?t\08ryTask.ryMultipleParams(\'ry\', true, 2000L, 316.50D, 100)t\0DEFAULTsr\0java.lang.Long;��̏#�\0J\0valuexr\0java.lang.Number������\0\0xp\0\0\0\0\0\0\0t\0系统默认（多参）t\03t\01x\0');
 
 /*Table structure for table `QRTZ_LOCKS` */
 
@@ -121,7 +161,7 @@ CREATE TABLE `QRTZ_LOCKS` (
   `sched_name` varchar(120) NOT NULL,
   `lock_name` varchar(40) NOT NULL,
   PRIMARY KEY (`sched_name`,`lock_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_LOCKS` */
 
@@ -137,7 +177,7 @@ CREATE TABLE `QRTZ_PAUSED_TRIGGER_GRPS` (
   `sched_name` varchar(120) NOT NULL,
   `trigger_group` varchar(200) NOT NULL,
   PRIMARY KEY (`sched_name`,`trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_PAUSED_TRIGGER_GRPS` */
 
@@ -151,7 +191,7 @@ CREATE TABLE `QRTZ_SCHEDULER_STATE` (
   `last_checkin_time` bigint NOT NULL,
   `checkin_interval` bigint NOT NULL,
   PRIMARY KEY (`sched_name`,`instance_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_SCHEDULER_STATE` */
 
@@ -171,7 +211,7 @@ CREATE TABLE `QRTZ_SIMPLE_TRIGGERS` (
   `times_triggered` bigint NOT NULL,
   PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
   CONSTRAINT `QRTZ_SIMPLE_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `QRTZ_TRIGGERS` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_SIMPLE_TRIGGERS` */
 
@@ -196,42 +236,11 @@ CREATE TABLE `QRTZ_SIMPROP_TRIGGERS` (
   `bool_prop_2` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
   CONSTRAINT `QRTZ_SIMPROP_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `trigger_name`, `trigger_group`) REFERENCES `QRTZ_TRIGGERS` (`sched_name`, `trigger_name`, `trigger_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB  ;
 
 /*Data for the table `QRTZ_SIMPROP_TRIGGERS` */
 
-/*Table structure for table `QRTZ_TRIGGERS` */
 
-DROP TABLE IF EXISTS `QRTZ_TRIGGERS`;
-
-CREATE TABLE `QRTZ_TRIGGERS` (
-  `sched_name` varchar(120) NOT NULL,
-  `trigger_name` varchar(200) NOT NULL,
-  `trigger_group` varchar(200) NOT NULL,
-  `job_name` varchar(200) NOT NULL,
-  `job_group` varchar(200) NOT NULL,
-  `description` varchar(250) DEFAULT NULL,
-  `next_fire_time` bigint DEFAULT NULL,
-  `prev_fire_time` bigint DEFAULT NULL,
-  `priority` int DEFAULT NULL,
-  `trigger_state` varchar(16) NOT NULL,
-  `trigger_type` varchar(8) NOT NULL,
-  `start_time` bigint NOT NULL,
-  `end_time` bigint DEFAULT NULL,
-  `calendar_name` varchar(200) DEFAULT NULL,
-  `misfire_instr` smallint DEFAULT NULL,
-  `job_data` blob,
-  PRIMARY KEY (`sched_name`,`trigger_name`,`trigger_group`),
-  KEY `sched_name` (`sched_name`,`job_name`,`job_group`),
-  CONSTRAINT `QRTZ_TRIGGERS_ibfk_1` FOREIGN KEY (`sched_name`, `job_name`, `job_group`) REFERENCES `QRTZ_JOB_DETAILS` (`sched_name`, `job_name`, `job_group`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `QRTZ_TRIGGERS` */
-
-insert  into `QRTZ_TRIGGERS`(`sched_name`,`trigger_name`,`trigger_group`,`job_name`,`job_group`,`description`,`next_fire_time`,`prev_fire_time`,`priority`,`trigger_state`,`trigger_type`,`start_time`,`end_time`,`calendar_name`,`misfire_instr`,`job_data`) values 
-('RuoyiScheduler','TASK_CLASS_NAME1','DEFAULT','TASK_CLASS_NAME1','DEFAULT',NULL,1614684800000,-1,5,'PAUSED','CRON',1614684794000,0,NULL,2,''),
-('RuoyiScheduler','TASK_CLASS_NAME2','DEFAULT','TASK_CLASS_NAME2','DEFAULT',NULL,1614684795000,-1,5,'PAUSED','CRON',1614684795000,0,NULL,2,''),
-('RuoyiScheduler','TASK_CLASS_NAME3','DEFAULT','TASK_CLASS_NAME3','DEFAULT',NULL,1614684800000,-1,5,'PAUSED','CRON',1614684797000,0,NULL,2,'');
 
 /*Table structure for table `gen_table` */
 
@@ -259,7 +268,7 @@ CREATE TABLE `gen_table` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='代码生成业务表';
+) ENGINE=InnoDB AUTO_INCREMENT=11   COMMENT='代码生成业务表';
 
 /*Data for the table `gen_table` */
 
@@ -303,7 +312,7 @@ CREATE TABLE `gen_table_column` (
   `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='代码生成业务表字段';
+) ENGINE=InnoDB AUTO_INCREMENT=122   COMMENT='代码生成业务表字段';
 
 /*Data for the table `gen_table_column` */
 
@@ -435,18 +444,18 @@ insert  into `gen_table_column`(`column_id`,`table_id`,`column_name`,`column_com
 DROP TABLE IF EXISTS `goods_category`;
 
 CREATE TABLE `goods_category` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
   `enable` char(2) NOT NULL COMMENT '（1：开启；0：关闭）',
-  `parent_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '父分类编号',
-  `name` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '名称',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '描述',
-  `pic_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '图片',
+  `parent_id` varchar(32)    DEFAULT NULL COMMENT '父分类编号',
+  `name` varchar(16)    DEFAULT NULL COMMENT '名称',
+  `description` varchar(255)    DEFAULT NULL COMMENT '描述',
+  `pic_url` varchar(255)    DEFAULT NULL COMMENT '图片',
   `sort` smallint DEFAULT NULL COMMENT '排序',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `del_flag` char(2)    DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='分类表';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='分类表';
 
 /*Data for the table `goods_category` */
 
@@ -468,15 +477,15 @@ insert  into `goods_category`(`id`,`enable`,`parent_id`,`name`,`description`,`pi
 DROP TABLE IF EXISTS `goods_spu`;
 
 CREATE TABLE `goods_spu` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `spu_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'spu编码',
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT 'spu名字',
-  `sell_point` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '卖点',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '描述',
-  `category_first` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '一级分类ID',
-  `category_second` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '二级分类ID',
-  `pic_urls` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '' COMMENT '商品图片',
-  `shelf` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '是否上架（1是 0否）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `spu_code` varchar(32)    DEFAULT NULL COMMENT 'spu编码',
+  `name` varchar(200)    NOT NULL DEFAULT '' COMMENT 'spu名字',
+  `sell_point` varchar(500)    NOT NULL DEFAULT '' COMMENT '卖点',
+  `description` text    NOT NULL COMMENT '描述',
+  `category_first` varchar(32)    NOT NULL COMMENT '一级分类ID',
+  `category_second` varchar(32)    DEFAULT NULL COMMENT '二级分类ID',
+  `pic_urls` varchar(1024)    NOT NULL DEFAULT '' COMMENT '商品图片',
+  `shelf` char(2)    NOT NULL DEFAULT '0' COMMENT '是否上架（1是 0否）',
   `sort` int NOT NULL DEFAULT '0' COMMENT '排序字段',
   `sales_price` decimal(10,2) DEFAULT NULL COMMENT '销售价格',
   `market_price` decimal(10,2) DEFAULT NULL COMMENT '市场价',
@@ -485,9 +494,9 @@ CREATE TABLE `goods_spu` (
   `sale_num` int DEFAULT '0' COMMENT '销量',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='商品表';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='商品表';
 
 /*Data for the table `goods_spu` */
 
@@ -506,16 +515,16 @@ insert  into `goods_spu`(`id`,`spu_code`,`name`,`sell_point`,`description`,`cate
 DROP TABLE IF EXISTS `order_info`;
 
 CREATE TABLE `order_info` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `user_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户id',
-  `order_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '订单单号',
+  `user_id` varchar(32)    NOT NULL COMMENT '用户id',
+  `order_no` varchar(50)    NOT NULL COMMENT '订单单号',
   `payment_way` char(2) NOT NULL COMMENT '支付方式1、货到付款；2、在线支付',
   `is_pay` char(2) NOT NULL COMMENT '是否支付0、未支付 1、已支付',
   `name` varchar(255) DEFAULT NULL COMMENT '订单名',
-  `status` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '订单状态1、待发货 2、待收货 3、确认收货/已完成 5、已关闭',
+  `status` char(2)    DEFAULT NULL COMMENT '订单状态1、待发货 2、待收货 3、确认收货/已完成 5、已关闭',
   `freight_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '运费金额',
   `sales_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '销售金额',
   `payment_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '支付金额（销售金额+运费金额）',
@@ -523,13 +532,13 @@ CREATE TABLE `order_info` (
   `delivery_time` datetime DEFAULT NULL COMMENT '发货时间',
   `receiver_time` datetime DEFAULT NULL COMMENT '收货时间',
   `closing_time` datetime DEFAULT NULL COMMENT '成交时间',
-  `user_message` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '买家留言',
+  `user_message` varchar(100)    DEFAULT NULL COMMENT '买家留言',
   `transaction_id` varchar(32) DEFAULT NULL COMMENT '支付交易ID',
   `logistics_id` varchar(32) DEFAULT NULL COMMENT '物流id',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '备注',
+  `remark` varchar(255)    DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_order_no` (`order_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='订单';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='订单';
 
 /*Data for the table `order_info` */
 
@@ -553,21 +562,21 @@ insert  into `order_info`(`id`,`del_flag`,`create_time`,`update_time`,`user_id`,
 DROP TABLE IF EXISTS `order_item`;
 
 CREATE TABLE `order_item` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `order_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '订单编号',
-  `spu_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '商品Id',
-  `spu_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '商品名',
-  `pic_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '图片',
+  `order_id` varchar(32)    NOT NULL COMMENT '订单编号',
+  `spu_id` varchar(32)    DEFAULT NULL COMMENT '商品Id',
+  `spu_name` varchar(200)    DEFAULT NULL COMMENT '商品名',
+  `pic_url` varchar(500)    NOT NULL COMMENT '图片',
   `quantity` int NOT NULL COMMENT '商品数量',
   `sales_price` decimal(10,2) NOT NULL COMMENT '购买单价',
   `freight_price` decimal(10,2) DEFAULT '0.00' COMMENT '运费金额',
   `payment_price` decimal(10,2) DEFAULT '0.00' COMMENT '支付金额（购买单价*商品数量+运费金额）',
-  `remark` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '备注',
+  `remark` varchar(250)    DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='订单详情';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='订单详情';
 
 /*Data for the table `order_item` */
 
@@ -591,21 +600,21 @@ insert  into `order_item`(`id`,`del_flag`,`create_time`,`update_time`,`order_id`
 DROP TABLE IF EXISTS `order_logistics`;
 
 CREATE TABLE `order_logistics` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `postal_code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '邮编',
-  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '收货人名字',
-  `tel_num` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '电话号码',
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '详细地址',
-  `logistics` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '物流商家',
-  `logistics_no` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '物流单号',
-  `status` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '快递单当前状态，包括-1错误，0在途，1揽收，2疑难，3签收，4退签，5派件，6退回，7转投 等7个状态',
-  `is_check` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '签收标记（0：未签收；1：已签收）',
-  `message` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '相关信息',
+  `postal_code` varchar(10)    DEFAULT NULL COMMENT '邮编',
+  `user_name` varchar(50)    NOT NULL COMMENT '收货人名字',
+  `tel_num` varchar(20)    NOT NULL COMMENT '电话号码',
+  `address` varchar(255)    NOT NULL COMMENT '详细地址',
+  `logistics` char(20)    DEFAULT NULL COMMENT '物流商家',
+  `logistics_no` varchar(30)    DEFAULT NULL COMMENT '物流单号',
+  `status` char(2)    DEFAULT NULL COMMENT '快递单当前状态，包括-1错误，0在途，1揽收，2疑难，3签收，4退签，5派件，6退回，7转投 等7个状态',
+  `is_check` char(2)    DEFAULT NULL COMMENT '签收标记（0：未签收；1：已签收）',
+  `message` varchar(500)    DEFAULT NULL COMMENT '相关信息',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='订单物流表';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='订单物流表';
 
 /*Data for the table `order_logistics` */
 
@@ -629,18 +638,18 @@ insert  into `order_logistics`(`id`,`del_flag`,`create_time`,`update_time`,`post
 DROP TABLE IF EXISTS `shopping_cart`;
 
 CREATE TABLE `shopping_cart` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `user_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户编号',
-  `spu_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品SPU',
+  `user_id` varchar(32)    NOT NULL COMMENT '用户编号',
+  `spu_id` varchar(32)    NOT NULL COMMENT '商品SPU',
   `quantity` int NOT NULL COMMENT '数量',
-  `spu_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '加入时的spu名字',
+  `spu_name` varchar(200)    DEFAULT NULL COMMENT '加入时的spu名字',
   `add_price` decimal(10,2) DEFAULT NULL COMMENT '加入时价格',
-  `pic_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '图片',
+  `pic_url` varchar(500)    DEFAULT NULL COMMENT '图片',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='购物车';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='购物车';
 
 /*Data for the table `shopping_cart` */
 
@@ -668,7 +677,7 @@ CREATE TABLE `sys_config` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`config_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='参数配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=100   COMMENT='参数配置表';
 
 /*Data for the table `sys_config` */
 
@@ -697,7 +706,7 @@ CREATE TABLE `sys_dept` (
   `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`dept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=200 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='部门表';
+) ENGINE=InnoDB AUTO_INCREMENT=200   COMMENT='部门表';
 
 /*Data for the table `sys_dept` */
 
@@ -733,7 +742,7 @@ CREATE TABLE `sys_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=100   COMMENT='字典数据表';
 
 /*Data for the table `sys_dict_data` */
 
@@ -783,7 +792,7 @@ CREATE TABLE `sys_dict_type` (
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`),
   UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=100   COMMENT='字典类型表';
 
 /*Data for the table `sys_dict_type` */
 
@@ -818,7 +827,7 @@ CREATE TABLE `sys_job` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT '' COMMENT '备注信息',
   PRIMARY KEY (`job_id`,`job_name`,`job_group`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='定时任务调度表';
+) ENGINE=InnoDB AUTO_INCREMENT=100   COMMENT='定时任务调度表';
 
 /*Data for the table `sys_job` */
 
@@ -841,7 +850,7 @@ CREATE TABLE `sys_job_log` (
   `exception_info` varchar(2000) DEFAULT '' COMMENT '异常信息',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='定时任务调度日志表';
+) ENGINE=InnoDB   COMMENT='定时任务调度日志表';
 
 /*Data for the table `sys_job_log` */
 
@@ -860,7 +869,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=331 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=331   COMMENT='系统访问记录';
 
 /*Data for the table `sys_logininfor` */
 
@@ -1121,7 +1130,7 @@ CREATE TABLE `sys_menu` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2052 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='菜单权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=2052   COMMENT='菜单权限表';
 
 /*Data for the table `sys_menu` */
 
@@ -1275,7 +1284,7 @@ CREATE TABLE `sys_notice` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`notice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='通知公告表';
+) ENGINE=InnoDB AUTO_INCREMENT=12   COMMENT='通知公告表';
 
 /*Data for the table `sys_notice` */
 
@@ -1305,7 +1314,7 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=166   COMMENT='操作日志记录';
 
 /*Data for the table `sys_oper_log` */
 
@@ -1393,7 +1402,7 @@ CREATE TABLE `sys_post` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='岗位信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=5   COMMENT='岗位信息表';
 
 /*Data for the table `sys_post` */
 
@@ -1423,7 +1432,7 @@ CREATE TABLE `sys_role` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='角色信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=100   COMMENT='角色信息表';
 
 /*Data for the table `sys_role` */
 
@@ -1439,7 +1448,7 @@ CREATE TABLE `sys_role_dept` (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `dept_id` bigint NOT NULL COMMENT '部门ID',
   PRIMARY KEY (`role_id`,`dept_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='角色和部门关联表';
+) ENGINE=InnoDB   COMMENT='角色和部门关联表';
 
 /*Data for the table `sys_role_dept` */
 
@@ -1456,7 +1465,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `menu_id` bigint NOT NULL COMMENT '菜单ID',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='角色和菜单关联表';
+) ENGINE=InnoDB   COMMENT='角色和菜单关联表';
 
 /*Data for the table `sys_role_menu` */
 
@@ -1619,7 +1628,7 @@ CREATE TABLE `sys_user` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=103   COMMENT='用户信息表';
 
 /*Data for the table `sys_user` */
 
@@ -1636,7 +1645,7 @@ CREATE TABLE `sys_user_post` (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `post_id` bigint NOT NULL COMMENT '岗位ID',
   PRIMARY KEY (`user_id`,`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户与岗位关联表';
+) ENGINE=InnoDB   COMMENT='用户与岗位关联表';
 
 /*Data for the table `sys_user_post` */
 
@@ -1651,7 +1660,7 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `role_id` bigint NOT NULL COMMENT '角色ID',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户和角色关联表';
+) ENGINE=InnoDB   COMMENT='用户和角色关联表';
 
 /*Data for the table `sys_user_role` */
 
@@ -1664,21 +1673,21 @@ insert  into `sys_user_role`(`user_id`,`role_id`) values
 DROP TABLE IF EXISTS `user_address`;
 
 CREATE TABLE `user_address` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'PK',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT 'PK',
+  `del_flag` char(2)    NOT NULL DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-  `user_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户编号',
-  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '收货人名字',
-  `postal_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '邮编',
-  `province_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '省名',
-  `city_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '市名',
-  `county_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '区名',
-  `detail_info` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '详情地址',
-  `tel_num` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '电话号码',
-  `is_default` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '是否默认 1是0否',
+  `user_id` varchar(32)    NOT NULL COMMENT '用户编号',
+  `user_name` varchar(50)    DEFAULT NULL COMMENT '收货人名字',
+  `postal_code` varchar(50)    DEFAULT NULL COMMENT '邮编',
+  `province_name` varchar(50)    DEFAULT NULL COMMENT '省名',
+  `city_name` varchar(50)    DEFAULT NULL COMMENT '市名',
+  `county_name` varchar(50)    DEFAULT NULL COMMENT '区名',
+  `detail_info` varchar(50)    DEFAULT NULL COMMENT '详情地址',
+  `tel_num` varchar(50)    DEFAULT NULL COMMENT '电话号码',
+  `is_default` char(2)    DEFAULT NULL COMMENT '是否默认 1是0否',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='用户地址';
+) ENGINE=InnoDB   ROW_FORMAT=DYNAMIC COMMENT='用户地址';
 
 /*Data for the table `user_address` */
 
@@ -1705,16 +1714,16 @@ CREATE TABLE `wx_auto_reply` (
   `rep_type` char(10) DEFAULT NULL COMMENT '回复消息类型（text：文本；image：图片；voice：语音；video：视频；music：音乐；news：图文）',
   `rep_mate` char(10) DEFAULT NULL COMMENT '回复类型文本匹配类型（1、全匹配，2、半匹配）',
   `rep_content` text COMMENT '回复类型文本保存文字',
-  `rep_media_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '回复类型imge、voice、news、video的mediaID或音乐缩略图的媒体id',
-  `rep_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '回复的素材名、视频和音乐的标题',
-  `rep_desc` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '视频和音乐的描述',
-  `rep_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '链接',
-  `rep_hq_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '高质量链接',
+  `rep_media_id` varchar(64)    DEFAULT NULL COMMENT '回复类型imge、voice、news、video的mediaID或音乐缩略图的媒体id',
+  `rep_name` varchar(100)    DEFAULT NULL COMMENT '回复的素材名、视频和音乐的标题',
+  `rep_desc` varchar(200)    DEFAULT NULL COMMENT '视频和音乐的描述',
+  `rep_url` varchar(500)    DEFAULT NULL COMMENT '链接',
+  `rep_hq_url` varchar(500)    DEFAULT NULL COMMENT '高质量链接',
   `rep_thumb_media_id` varchar(64) DEFAULT NULL COMMENT '缩略图的媒体id',
   `rep_thumb_url` varchar(500) DEFAULT NULL COMMENT '缩略图url',
   `content` mediumtext COMMENT '图文消息的内容',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='微信自动回复';
+) ENGINE=InnoDB   COMMENT='微信自动回复';
 
 /*Data for the table `wx_auto_reply` */
 
@@ -1723,29 +1732,29 @@ CREATE TABLE `wx_auto_reply` (
 DROP TABLE IF EXISTS `wx_menu`;
 
 CREATE TABLE `wx_menu` (
-  `id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '菜单ID（click、scancode_push、scancode_waitmsg、pic_sysphoto、pic_photo_or_album、pic_weixin、location_select：保存key）',
-  `del_flag` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
+  `id` varchar(32)    NOT NULL COMMENT '菜单ID（click、scancode_push、scancode_waitmsg、pic_sysphoto、pic_photo_or_album、pic_weixin、location_select：保存key）',
+  `del_flag` char(2)    DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `sort` int DEFAULT '1' COMMENT '排序值',
-  `parent_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '父菜单ID',
-  `type` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '菜单类型click、view、miniprogram、scancode_push、scancode_waitmsg、pic_sysphoto、pic_photo_or_album、pic_weixin、location_select、media_id、view_limited等',
+  `parent_id` varchar(32)    DEFAULT NULL COMMENT '父菜单ID',
+  `type` char(20)    DEFAULT NULL COMMENT '菜单类型click、view、miniprogram、scancode_push、scancode_waitmsg、pic_sysphoto、pic_photo_or_album、pic_weixin、location_select、media_id、view_limited等',
   `name` varchar(20) DEFAULT NULL COMMENT '菜单名',
-  `url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'view、miniprogram保存链接',
-  `ma_app_id` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '小程序的appid',
-  `ma_page_path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '小程序的页面路径',
-  `rep_type` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '回复消息类型（text：文本；image：图片；voice：语音；video：视频；music：音乐；news：图文）',
-  `rep_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT 'Text:保存文字',
-  `rep_media_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'imge、voice、news、video：mediaID',
-  `rep_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '素材名、视频和音乐的标题',
-  `rep_desc` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '视频和音乐的描述',
+  `url` varchar(500)    DEFAULT NULL COMMENT 'view、miniprogram保存链接',
+  `ma_app_id` varchar(32)    DEFAULT NULL COMMENT '小程序的appid',
+  `ma_page_path` varchar(100)    DEFAULT NULL COMMENT '小程序的页面路径',
+  `rep_type` char(10)    DEFAULT NULL COMMENT '回复消息类型（text：文本；image：图片；voice：语音；video：视频；music：音乐；news：图文）',
+  `rep_content` text    COMMENT 'Text:保存文字',
+  `rep_media_id` varchar(64)    DEFAULT NULL COMMENT 'imge、voice、news、video：mediaID',
+  `rep_name` varchar(100)    DEFAULT NULL COMMENT '素材名、视频和音乐的标题',
+  `rep_desc` varchar(200)    DEFAULT NULL COMMENT '视频和音乐的描述',
   `rep_url` varchar(500) DEFAULT NULL COMMENT '链接',
-  `rep_hq_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '高质量链接',
-  `rep_thumb_media_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '缩略图的媒体id',
+  `rep_hq_url` varchar(500)    DEFAULT NULL COMMENT '高质量链接',
+  `rep_thumb_media_id` varchar(64)    DEFAULT NULL COMMENT '缩略图的媒体id',
   `rep_thumb_url` varchar(500) DEFAULT NULL COMMENT '缩略图url',
   `content` mediumtext COMMENT '图文消息的内容',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='自定义菜单表';
+) ENGINE=InnoDB   COMMENT='自定义菜单表';
 
 /*Data for the table `wx_menu` */
 
@@ -1761,20 +1770,20 @@ CREATE TABLE `wx_msg` (
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `remark` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
   `del_flag` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '0' COMMENT '逻辑删除标记（0：显示；1：隐藏）',
-  `app_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '公众号名称',
+  `app_name` varchar(50)    DEFAULT NULL COMMENT '公众号名称',
   `app_logo` varchar(500) DEFAULT NULL COMMENT '公众号logo',
   `wx_user_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '微信用户ID',
   `nick_name` varchar(200) DEFAULT NULL COMMENT '微信用户昵称',
   `headimg_url` varchar(1000) DEFAULT NULL COMMENT '微信用户头像',
   `type` char(2) DEFAULT NULL COMMENT '消息分类（1、用户发给公众号；2、公众号发给用户；）',
-  `rep_type` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '消息类型（text：文本；image：图片；voice：语音；video：视频；shortvideo：小视频；location：地理位置；music：音乐；news：图文；event：推送事件）',
-  `rep_event` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '事件类型（subscribe：关注；unsubscribe：取关；CLICK、VIEW：菜单事件）',
-  `rep_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '回复类型文本保存文字、地理位置信息',
-  `rep_media_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '回复类型imge、voice、news、video的mediaID或音乐缩略图的媒体id',
-  `rep_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '回复的素材名、视频和音乐的标题',
-  `rep_desc` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '视频和音乐的描述',
-  `rep_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '链接',
-  `rep_hq_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '高质量链接',
+  `rep_type` char(20)    DEFAULT NULL COMMENT '消息类型（text：文本；image：图片；voice：语音；video：视频；shortvideo：小视频；location：地理位置；music：音乐；news：图文；event：推送事件）',
+  `rep_event` char(20)    DEFAULT NULL COMMENT '事件类型（subscribe：关注；unsubscribe：取关；CLICK、VIEW：菜单事件）',
+  `rep_content` text    COMMENT '回复类型文本保存文字、地理位置信息',
+  `rep_media_id` varchar(64)    DEFAULT NULL COMMENT '回复类型imge、voice、news、video的mediaID或音乐缩略图的媒体id',
+  `rep_name` varchar(100)    DEFAULT NULL COMMENT '回复的素材名、视频和音乐的标题',
+  `rep_desc` varchar(200)    DEFAULT NULL COMMENT '视频和音乐的描述',
+  `rep_url` varchar(500)    DEFAULT NULL COMMENT '链接',
+  `rep_hq_url` varchar(500)    DEFAULT NULL COMMENT '高质量链接',
   `content` mediumtext COMMENT '图文消息的内容',
   `rep_thumb_media_id` varchar(64) DEFAULT NULL COMMENT '缩略图的媒体id',
   `rep_thumb_url` varchar(500) DEFAULT NULL COMMENT '缩略图url',
@@ -1783,7 +1792,7 @@ CREATE TABLE `wx_msg` (
   `rep_scale` double DEFAULT NULL COMMENT '地图缩放大小',
   `read_flag` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '1' COMMENT '已读标记（1：是；0：否）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='微信消息';
+) ENGINE=InnoDB   COMMENT='微信消息';
 
 /*Data for the table `wx_msg` */
 
@@ -1805,18 +1814,18 @@ CREATE TABLE `wx_user` (
   `subscribe_time` datetime DEFAULT NULL COMMENT '关注时间',
   `subscribe_num` int DEFAULT NULL COMMENT '关注次数',
   `cancel_subscribe_time` datetime DEFAULT NULL COMMENT '取消关注时间',
-  `open_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户标识',
-  `nick_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '昵称',
-  `sex` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '性别（1：男，2：女，0：未知）',
-  `city` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '所在城市',
-  `country` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '所在国家',
-  `province` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '所在省份',
+  `open_id` varchar(64)    NOT NULL COMMENT '用户标识',
+  `nick_name` varchar(200)    DEFAULT NULL COMMENT '昵称',
+  `sex` char(2)    DEFAULT NULL COMMENT '性别（1：男，2：女，0：未知）',
+  `city` varchar(64)    DEFAULT NULL COMMENT '所在城市',
+  `country` varchar(64)    DEFAULT NULL COMMENT '所在国家',
+  `province` varchar(64)    DEFAULT NULL COMMENT '所在省份',
   `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '手机号码',
-  `language` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户语言',
-  `headimg_url` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '头像',
-  `union_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'union_id',
-  `group_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '用户组',
-  `tagid_list` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '标签列表',
+  `language` varchar(64)    DEFAULT NULL COMMENT '用户语言',
+  `headimg_url` varchar(1000)    DEFAULT NULL COMMENT '头像',
+  `union_id` varchar(64)    DEFAULT NULL COMMENT 'union_id',
+  `group_id` varchar(64)    DEFAULT NULL COMMENT '用户组',
+  `tagid_list` varchar(64)    DEFAULT NULL COMMENT '标签列表',
   `qr_scene_str` varchar(64) DEFAULT NULL COMMENT '二维码扫码场景',
   `latitude` double DEFAULT NULL COMMENT '地理位置纬度',
   `longitude` double DEFAULT NULL COMMENT '地理位置经度',
@@ -1824,7 +1833,7 @@ CREATE TABLE `wx_user` (
   `session_key` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '会话密钥',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_openid` (`open_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='微信用户';
+) ENGINE=InnoDB   COMMENT='微信用户';
 
 /*Data for the table `wx_user` */
 

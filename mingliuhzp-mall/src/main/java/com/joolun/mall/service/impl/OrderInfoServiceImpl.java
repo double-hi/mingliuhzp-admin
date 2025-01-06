@@ -138,7 +138,8 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 	public OrderInfo orderSub(PlaceOrderDTO placeOrderDTO) {
 		OrderInfo orderInfo = new OrderInfo();
 		BeanUtil.copyProperties(placeOrderDTO,orderInfo);
-		orderInfo.setIsPay(CommonConstants.NO);
+		orderInfo.setIsPay(CommonConstants.YES);
+		orderInfo.setStatus("1");
 		orderInfo.setOrderNo(IdUtil.getSnowflake(0,0).nextIdStr());
 		orderInfo.setSalesPrice(BigDecimal.ZERO);
 		orderInfo.setPaymentPrice(BigDecimal.ZERO);

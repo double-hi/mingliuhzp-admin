@@ -74,6 +74,7 @@ public class WxUserApi {
 		wxOpenDataDTO.setAppId(ThirdSessionHolder.getThirdSession().getAppId());
 		wxOpenDataDTO.setUserId(ThirdSessionHolder.getThirdSession().getWxUserId());
 		wxOpenDataDTO.setSessionKey(ThirdSessionHolder.getThirdSession().getSessionKey());
+		log.debug(wxOpenDataDTO.toString());
 		WxUser wxUser = wxUserService.saveOrUptateWxUser(wxOpenDataDTO);
 		return AjaxResult.success(wxUser);
 	}

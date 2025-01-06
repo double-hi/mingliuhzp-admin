@@ -127,5 +127,11 @@ private static final long serialVersionUID = 1L;
    */
 	@ApiModelProperty(value = "逻辑删除标记（0：显示；1：隐藏）")
     private String delFlag;
+	/**
+	 * 商品海报
+	 */
+	@ApiModelProperty(value = "商品海报")
+	@TableField(typeHandler = ArrayStringTypeHandler.class, jdbcType= JdbcType.VARCHAR)
+	private String[] posterUrls;
 
 }
